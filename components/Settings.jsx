@@ -35,8 +35,12 @@ module.exports = class QuickReactSettings extends React.Component {
           onChange={name => {
             this.setState({name, nameIsValid: !!this.plugin.nameToUnicode(name) && !this.plugin.emojis.includes(name)})
           }}
-          // this is definitely not the right way to do this, but I'll take it.
-          onKeyPress={event => event.key === "Enter" ? document.querySelector(".add-button").click() : null}
+          onKeyPress={event => {
+            // this is definitely not the right way to do this, but I'll take it.
+            if (event.key === "Enter") {
+              document.querySelector(".quickreact-settings .add-button").click()
+            }
+          }}
         ></TextInput>
         <Button
           className="add-button"
