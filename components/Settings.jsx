@@ -16,7 +16,6 @@ module.exports = class QuickReactSettings extends React.Component {
   apply() {
     this.plugin.saveSettings()
     this.plugin.forceUpdate()
-    // ideally I'd clear the input in here, but I don't know how.
     this.setState({emojis: this.plugin.emojis, name: "", nameIsValid: false})
   }
 
@@ -32,10 +31,12 @@ module.exports = class QuickReactSettings extends React.Component {
       <div className="add-container">
         <TextInput
           style={!this.state.nameIsValid ? {borderColor: '#e22d2d'} : {borderColor: '#48c148'}}
+          value={this.state.name}
           onChange={name => {
             this.setState({name, nameIsValid: !!this.plugin.nameToUnicode(name) && !this.plugin.emojis.includes(name)})
           }}
-          // if I knew what I was doing, I would make it so pressing enter adds the item
+          // this is definitely not the right way to do this, but I'll take it.
+          onKeyPress={event => event.key === "Enter" ? document.querySelector(".add-button").click() : null}
         ></TextInput>
         <Button
           className="add-button"
