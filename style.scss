@@ -1,0 +1,51 @@
+.star-reaction-btn {
+	cursor: pointer;
+	height: 1rem;
+	margin-left: 6px;
+	margin-right: 0;
+	opacity: .4;
+	transition: opacity .2s ease;
+	width: 1rem;
+}
+
+.star-reaction-btn:hover {
+	opacity: 1;
+}
+
+@mixin normal-text {
+	color: var(--text-normal)
+}
+
+.quickreact-settings {
+	.input-description {
+		@include normal-text;
+		margin: 14px 0px;
+	}
+	.add-container {
+		display: flex;
+
+		.add-button {
+			margin-left: 10px
+		}
+	}
+
+	.reaction-list-container {
+		display: flex;
+
+		.reaction-list {
+			@include normal-text;
+			display: grid;
+			align-items: center;
+			grid-template-columns: 24px auto 16px;
+			grid-gap: 10px;
+			min-width: 260px;
+
+			.delete {
+				filter: brightness(1.2);
+				cursor: pointer;
+				position: relative;
+				top: -2px;
+			}
+		}
+	}
+}
