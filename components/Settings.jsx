@@ -56,7 +56,8 @@ module.exports = class QuickReactSettings extends React.Component {
       <h5 className='h5-18_1nd title-3sZWYQ size12-3R0845 height16-2Lv3qA weightSemiBold-NJexzi marginBottom8-AtZOdT marginTop40-i-78cZ'>
         Emoji list
       </h5>
-      <div className="reaction-list-container"> // this flex makes the reaction grid not full width
+      {/* this flex makes the reaction grid not full width */}
+      <div className="reaction-list-container">
         <div className="reaction-list">
           {this.state.emojis.map(name => <>
               <img src={this.plugin.nameToURL(name)}></img>
