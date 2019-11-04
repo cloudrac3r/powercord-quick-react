@@ -96,6 +96,7 @@ module.exports = class QuickReact extends Plugin {
 									src: _this.nameToURL(name),
 									alt: name,
 									className: "star-reaction-btn", // using same class name as quickstar for easy 3rd party themes
+									draggable: false,
 									onClick: () => _this.modules.get("addReaction")(e.channel.id, e.message.id, {
 										animated: false,
 										name: _this.nameToUnicode(name),
